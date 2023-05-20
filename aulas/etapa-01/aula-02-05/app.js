@@ -42,7 +42,7 @@ let postLikes = 10
 //// Addition assignment
 // postLikes += 10
 
-//// Subtraction assignment
+//// Subtraction assignmeaula-02-05 copynt
 // postLikes -= 10
 
 //// Multiplication assignment
