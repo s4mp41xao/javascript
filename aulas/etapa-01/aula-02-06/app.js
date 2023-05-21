@@ -29,5 +29,4 @@ const html = `
   <p>Autor: ${postAuthor}</p>
   <span>Este post tem ${postComments} comentários</span>
   `
-
 console.log(html)
