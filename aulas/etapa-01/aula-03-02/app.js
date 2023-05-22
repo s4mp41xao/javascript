@@ -5,6 +5,7 @@ const ages = [31, 25, 39, 40, 25]
 const randomArray = ['Parker', 'Diana', 19, 18]
 
 // Métodos de arrays
+// Adiciona items em um array concatenado e separado por virgulas ou pipes.
 const joinHeroes = heroes.join(' | ')
 // Retorna o index de um item dentro do array.
 const indexOf25 = ages.indexOf(25)
