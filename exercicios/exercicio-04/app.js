@@ -24,7 +24,7 @@ const sentence = `Minhas 3 séries favoritas são: ${my3FavoriteTVShows.join(', 
     possui 3 itens.
 */
 
-
+// console.log(my3FavoriteTVShows.length === 3)
 
 /*
   03 - Comente o console.log() acima e:
@@ -37,6 +37,8 @@ const sentence = `Minhas 3 séries favoritas são: ${my3FavoriteTVShows.join(', 
 */
 
 const randomTVShow = 'Watchmen'
+const isRandomTVShowIncluded = my3FavoriteTVShows.includes(randomTVShow)
+// console.log(isRandomTVShowIncluded)
 
 /*
   04 - Comente o console.log() acima e:
@@ -49,7 +51,8 @@ const randomTVShow = 'Watchmen'
   "O tipo de dado que a const "isRandomTVShowIncluded" armazena é: TIPO_DE_DADO."
 */
 
-
+const typeSentence = `O tipo de dado que a const "isRandomTVShowIncluded" armazena é: ${typeof isRandomTVShowIncluded}.`
+// console.log(typeSentence) // 'O tipo de dado que a const "isRandomTVShowIncluded" armazena é: boolean.' 
 
 /*
   05 - Comente o console.log() acima e:
@@ -65,7 +68,9 @@ const randomTVShow = 'Watchmen'
   caracteres? BOOLEAN."
 */
 
-
+const numberToCheck = 39
+// console.log(`A string que a "typeSentence" armazena tem mais de ${numberToCheck} caracteres? ${String(typeSentence.length > numberToCheck).replace('t', 'T')}.`)
+// ' A string que a "typeSentence" armazena tem mais de 39 caracteres? True.' 
 
 /*
   06 - Comente o console.log() acima e:
@@ -78,6 +83,7 @@ const randomTVShow = 'Watchmen'
 */
 
 const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
+console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o ${falsyValues[2]} `) // 'false'
 
 /*
   07 - Comente o console.log() acima e:
@@ -88,7 +94,9 @@ const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
   - Você sabe por que essa conversão resultou em true?
 */
 
-
+crazyOperation = null + 1
+crazyConversion = Boolean(crazyOperation)
+// console.log(crazyConversion) // 0 + 1 é = 1
 
 /*
   08 - Comente o console.log() acima e:
@@ -103,7 +111,9 @@ const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
   é: BOOLEAN."
 */
 
-
+const ages = ['31', '82', '61', '11']
+const agesSum = Number(ages[0]) + Number(ages[2])
+// console.log(`A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${agesSum <= 92}.`)
 
 /*
   09 - Comente o console.log() acima e:
@@ -114,7 +124,9 @@ const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
   - Exiba a "isNotAString" no console.
 */
 
-
+// const isNotAString = randomTVShow != Boolean
+const isNotAString = randomTVShow.includes(typeof randomTVShow)
+// console.log(isNotAString )
 
 /*
   10 - Comente o console.log() acima e:
@@ -125,3 +137,5 @@ const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
 */
 
 const evenNumbers = [0, 2, 4, 6, 8, 10]
+const verifyNumber = evenNumbers[4] === 8
+// console.log(verifyNumber)
