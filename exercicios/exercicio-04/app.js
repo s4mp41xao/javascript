@@ -83,14 +83,13 @@ const numberToCheck = 39
 */
 
 const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
-console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o ${falsyValues[2]} `) // 'false'
+// console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o ${falsyValues[2]} `) // 'Todos os 8 itens do array "falsyValues" são falsy. Inclusive o false '
 
 /*
   07 - Comente o console.log() acima e:
 
   - Armazene em uma constante "crazyOperation" a soma entre null e 1;
-  - Armazene em uma constante "crazyConversion" a conversão da "crazyOperation"  
-    em boolean.
+  - Armazene em uma constante "crazyConversion" a conversão da "crazyOperation" em boolean.
   - Você sabe por que essa conversão resultou em true?
 */
 
@@ -111,8 +110,8 @@ crazyConversion = Boolean(crazyOperation)
   é: BOOLEAN."
 */
 
-const ages = ['31', '82', '61', '11']
-const agesSum = Number(ages[0]) + Number(ages[2])
+const ages = [31, 82, 61, 11]
+const agesSum = ages[0] + ages[2]
 // console.log(`A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${agesSum <= 92}.`)
 
 /*
@@ -124,8 +123,7 @@ const agesSum = Number(ages[0]) + Number(ages[2])
   - Exiba a "isNotAString" no console.
 */
 
-// const isNotAString = randomTVShow != Boolean
-const isNotAString = randomTVShow.includes(typeof randomTVShow)
+const isNotAString = randomTVShow !== 'string'
 // console.log(isNotAString )
 
 /*
@@ -136,6 +134,6 @@ const isNotAString = randomTVShow.includes(typeof randomTVShow)
   - Não utilize o método includes desta vez.
 */
 
+// const verifyNumber = evenNumbers[4] === 8
 const evenNumbers = [0, 2, 4, 6, 8, 10]
-const verifyNumber = evenNumbers[4] === 8
-// console.log(verifyNumber)
+console.log(evenNumbers.indexOf(8) !== - 1)
