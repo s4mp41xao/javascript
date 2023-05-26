@@ -22,4 +22,4 @@ const convertedNumber = String(97)
 const booleanConversion = Boolean(10)
 
 // Exibe o valor convertido e verifica o tipo do valor.
-console.log(booleanConversion, typeof booleanConversion) // 'boolean'
+// console.log(booleanConversion, typeof booleanConversion) // 'boolean'
