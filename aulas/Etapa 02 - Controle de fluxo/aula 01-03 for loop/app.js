@@ -5,9 +5,12 @@
 
 // console.log('Loop finalizado')
 
-const names = ['Linus', 'Ada', 'Bill']
+// const names = ['Linus', 'Ada', 'Bill']
+// for (let i = 0; i < names.length; i++) {
+//   console.log(names[i]) 
+// }
 
-for (let i = 0; i < names.length; i++) {
-  const HTMLTemplate = `<p>${names[i]}</p>`
-  console.log(HTMLTemplate)
-}
+// for (let i = 0; i < names.length; i++) {
+//   const HTMLTemplate = `<p>${names[i]}</p>`
+//   console.log(HTMLTemplate)
+// }
