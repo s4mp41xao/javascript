@@ -16,18 +16,12 @@
 
 */
 
-const password = '12345'
+const password = '12345678'
 
-if (password.length >= 12 && password.includes('1')) {
+if (password.length >= 12) {
   console.log('Senha forte!')
-} else if (password.length >= 8 || password.includes('1') && password.length >= 5) {
+} else if (password.length >= 8) {
   console.log('Senha média!')
 } else {
   console.log('Senha fraca!')
 }
-
-// Com o operador lógico && “E” verificamos se duas ou mais condições são verdadeiras.
-
-// Geralmente com o operador lógico || “OU” executa apenas uma das condições na expressão.  
-
-// Seguindo a mesma lógica de que o operador lógico || executa apenas uma das duas expressão iniciais, o operador && também precisa resultar em true para que todo o bloco de código seja executado.
