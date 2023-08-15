@@ -29,7 +29,7 @@ const myAge = () => {
 
 console.log(myAge())
 
-// console.log(age)
+console.log(age)
 
 /*
   03
