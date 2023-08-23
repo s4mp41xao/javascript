@@ -8,12 +8,28 @@
 
 
 
-const ul = document.querySelector('ul')
+// const ul = document.querySelector('ul')
 
-Array.from(ul.children).forEach(li => {
-  li.classList.add('video')
-  console.log(li)
-})
+// Array.from(ul.children).forEach(li => {
+//   li.classList.add('video')
+//   console.log(li)
+// })
+
+const ul = document.querySelector('.videos')
+const lis = Array.from(ul.children)
+
+const insertVideoClass = li => {
+  li.classList.add('videos')
+}
+
+lis.forEach(insertVideoClass) 
+
+console.log(lis)
+
+// Array.from(ul.children).forEach(li => {
+//   li.classList.add('video')
+//   console.log(li)
+// })
 
 /*
   02
@@ -22,9 +38,9 @@ Array.from(ul.children).forEach(li => {
     e exiba-o no console;
 */
 
+const h2 = document.querySelector('h2')
 
-
-console.log(ul.previousElementSibling.parentElement)
+console.log(h2.parentElement)
 
 /*
   03
@@ -32,8 +48,9 @@ console.log(ul.previousElementSibling.parentElement)
   - Descubra quem é o próximo elemento irmão do h1 e exiba-o no console;
 */
 
-console.log(ul.previousElementSibling.previousElementSibling.nextElementSibling)
+const h1 = document.querySelector('h1')
 
+console.log(h1.nextElementSibling)
 
 /*
   04
@@ -51,13 +68,15 @@ console.log(ul.previousElementSibling)
     exibida no console.
 */
 
-const lis = document.querySelectorAll('li')
+const showClickedLi =  event => {
+  console.log(event.target)
+}
 
-lis.forEach(li => {
-  li.addEventListener('click', () => {
-    console.log(li.textContent)
-  })
-})
+const addClickEvent = li => {
+  li.addEventListener('click', showClickedLi)
+}
+
+lis.forEach(addClickEvent)
 
 
 /*
@@ -80,11 +99,22 @@ const videos = [{
 
 const button = document.querySelector('button')
 
-videos.forEach(video => {
-  button.addEventListener('click', () => {
-    ul.innerHTML += `<li>${video.name}</li>`
-  })
-})
+const insertVideoLi = ({ name, length }) => {
+  ul.innerHTML += `<li>${name} | ${length}</li>`
+}
+
+const handleClickButton = () => {
+  videos.forEach(insertVideoLi)
+}
+
+button.addEventListener('click', handleClickButton)
+
+
+// videos.forEach(video => {
+//   button.addEventListener('click', () => {
+//     ul.innerHTML += `<li>${video.name}</li>`
+//   })
+// })
 
 
 /*
@@ -94,8 +124,8 @@ videos.forEach(video => {
     sejam removidos.
 */
 
-const h1 = document.querySelector('h1')
+const body = document.body
 
 h1.addEventListener('click', () => {
-  document.body.remove(document.body.children)
+  body.innerHTML = ''
 })
