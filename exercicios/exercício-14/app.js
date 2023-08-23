@@ -105,7 +105,7 @@ console.log(h1.style)
 /*
   08
 
-  - Remova a classe "body-background", do elemento body.
+  - Remova a classe "body-background", do elemento14 body.
 */
 
 body.classList.remove('body-background')
