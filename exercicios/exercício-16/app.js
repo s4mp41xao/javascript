@@ -48,8 +48,6 @@ button.addEventListener('click', changeEggColor)
     da div.".
 */
 
-
-
 /*
   03
 
@@ -57,8 +55,6 @@ button.addEventListener('click', changeEggColor)
   - Faça com que a mensagem de clique na div e a mensagem de clique em algum
     filho da div, ao invés de ser exibida no console, seja inserida neste h2.
 */
-
-
 
 /*
   04
@@ -75,16 +71,12 @@ button.addEventListener('click', changeEggColor)
     "Eixo X: COORDENADA_EIXO_X | Eixo Y: COORDENADA_EIXO_Y".
 */
 
-
 /*
   06
 
   - Modifique a cor do ovo para "lightgoldenrodyellow" quando o botão for 
     clicado.
 */
-
-
-
 
 /*
   07
