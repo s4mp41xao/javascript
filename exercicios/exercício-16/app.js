@@ -7,31 +7,38 @@
 
 const div = document.querySelector('div')
 const elementsInsideDiv = Array.from(div.children)
+const h2 = document.querySelector('h2')
+const egg = document.querySelector('.egg')
+const button = document.querySelector('button')
 
-elementsInsideDiv.forEach(element => {
-  element.addEventListener('click', event => {
-    const clickedElement = event.target.tagName.toLowerCase()
+const showClickedElement = ({ target }) => {
+  const clickedElementName = target.tagName.toLowerCase()
 
-    const h2 = document.createElement('h2')
+  if(clickedElementName === 'div'){
+    h2.textContent = 'Clicou na div.'
+    return
+  }
+  
+  h2.textContent = `Clicou no ${clickedElementName} filho da div.`
+}
 
-    // div.previousElementSibling.textContent = 'hello'
 
-    h2.textContent = `Clicou no ${clickedElement} filho da div.` 
+const logCopyMessage = () => {
+  console.log('Texto copiado!')
+}
 
-    div.prepend(h2)
+const showCoordinates = ({ offsetX, offsetY }) => {
+  egg.textContent = `Eixo X: ${offsetX} | Eixo Y: ${offsetY}`
+}
 
-    h2.addEventListener('copy', () => {
-      console.log('Texto copiado!')
-    })
+const changeEggColor = () => {
+  egg.style.background = 'lightgoldenrodyellow'
+}
 
-    // console.log(``)
-    event.stopPropagation()
-  })
-})
-
-div.addEventListener('click', () => {
-  console.log('Clicou na div.')
-})
+div.addEventListener('click', showClickedElement)
+h2.addEventListener('copy', logCopyMessage)
+egg.addEventListener('mousemove', showCoordinates)
+button.addEventListener('click', changeEggColor)
 
 /*
   02
@@ -68,13 +75,6 @@ div.addEventListener('click', () => {
     "Eixo X: COORDENADA_EIXO_X | Eixo Y: COORDENADA_EIXO_Y".
 */
 
-const egg = document.querySelector('.egg')
-
-egg.addEventListener('mousemove', target => {
-
-  egg.textContent = `Eixo X: ${target.offsetX} | Eixo Y: ${target.offsetY}`
-
-})
 
 /*
   06
@@ -83,11 +83,8 @@ egg.addEventListener('mousemove', target => {
     clicado.
 */
 
-const button = document.querySelector('button')
 
-button.addEventListener('click', () => {
-  egg.style.background = 'lightgoldenrodyellow'
-})
+
 
 /*
   07
@@ -110,11 +107,9 @@ const people = [
   { id: 9, name: 'Hamilton Silva', profession: 'Advogado' }
 ]
 
-const checkProfession = people => {
-  const frontEnd = people.profession === 'Front-end developer'
-  if (frontEnd) {
-    console.log('O array people contém, no mínimo, um(a) Front-end developer.')
-  }
-} 
+const isSomePersonFrontendDeveloper = people.some(({ profession }) => profession === 'Front-end developer')
 
-people.forEach(checkProfession)
+if (isSomePersonFrontendDeveloper) {
+  console.log('O array people contém, no mínimo, um(a) Front-end developer.')
+}
+
