@@ -9,6 +9,9 @@ form.addEventListener('submit', event => {
 
 const username = 'samuel'
 const pattern = /^[a-z]{6,}$/
+const result = username.search(pattern)
+
+console.log(result)
 // const isAMatch = pattern.test(username)
 
 
@@ -17,12 +20,3 @@ const pattern = /^[a-z]{6,}$/
 // } else {
 //   console.log('Regex não aprovado. =(')
 // }
-
-const result = username.search(pattern)
-
-console.log(result)
-
-
-
-
-
