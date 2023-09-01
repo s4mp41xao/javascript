@@ -22,22 +22,29 @@
   - O clique no botão "Parar contador" deve fazer com que o contador exiba 0.
 */
 
-const counter = document.querySelector('.counter-container')
+const counterContainer = document.querySelector('.counter-container')
 const buttonInitCounter = document.querySelector('.button-init-counter')
 const buttonStopCounter = document.querySelector('.button-stop-counter')
 
+let timer = null
+
+const incrementCounter = () => {
+  const incrementedCounter = Number(counterContainer.textContent) + 1
+  counterContainer.textContent = incrementedCounter
+}
+
+const stopCounter = () => {
+  clearInterval(timer)
+  counterContainer.textContent = 0
+}
+
 buttonInitCounter.addEventListener('click', () => {
-  const timer = setInterval(() => {
-    counter.textContent++
-  }, 1000)
-
-  buttonStopCounter.addEventListener('click', () => {
-    clearInterval(timer)
-    counter.textContent = 0
-  })
-
+  timer = setInterval(incrementCounter, 1000)
 })
 
+buttonStopCounter.addEventListener('click', () => {
+  stopCounter()
+})
 
 
 
