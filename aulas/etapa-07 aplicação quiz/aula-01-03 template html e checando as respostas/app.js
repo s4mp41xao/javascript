@@ -1,5 +1,5 @@
 const form = document.querySelector('.quiz-form')
-const fiinalResult = document.querySelector('.result')
+const finalResult = document.querySelector('.result')
 
 const correctAnswers = ['B', 'B', 'B', 'B']
 
@@ -22,11 +22,14 @@ form.addEventListener('submit', event => {
 
   scrollTo(0, 0)
 
-  fiinalResult.querySelector('span').textContent = `${score}%`
-  fiinalResult.classList.remove('d-none')
-
+  finalResult.classList.remove('d-none')
+  
+  let counter = 0
+  const timer = setInterval(() => {
+    if(counter === score){
+      clearInterval(timer)
+    }
+    finalResult.querySelector('span').textContent = `${counter}%`
+    counter++
+  }, 10)
 })
-
-// setTimeout(() => {
-//   alert('Executou!')
-// }, 2000)
