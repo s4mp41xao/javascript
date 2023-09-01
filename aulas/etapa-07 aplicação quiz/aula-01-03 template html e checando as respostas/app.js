@@ -20,7 +20,13 @@ form.addEventListener('submit', event => {
     }
   })
 
+  scrollTo(0, 0)
+
   fiinalResult.querySelector('span').textContent = `${score}%`
   fiinalResult.classList.remove('d-none')
 
 })
+
+// setTimeout(() => {
+//   alert('Executou!')
+// }, 2000)
