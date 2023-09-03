@@ -15,6 +15,12 @@ Independente se você já fez o quiz dos filmes enquanto acompanhava a aula, bus
 
 const form = document.querySelector('.person-form')
 const p = document.createElement('h2')
+const scoreText = document.querySelector('.score-container')
+const scoreResult = document.querySelector('span')
+
+const correctAnswers = ['paris', 'jupiter', 'o', 'elefante']
+
+let score = 0
 
 form.addEventListener('submit', event =>  {
   event.preventDefault()
@@ -25,7 +31,16 @@ form.addEventListener('submit', event =>  {
     form.inputQuestion3.value,
     form.inputQuestion4.value,
   ]
-  console.log(userAnswers)
+
+  userAnswers.forEach((userAnswer, index) => {
+    if(userAnswer === correctAnswers[index]){
+      score += 25
+      console.log(`Correto! Você ganhou 25 pontos por acertar a resposta: ${correctAnswers[index]}`)
+    }
+  })
+
+  console.log(scoreText.classList.remove('d-none'))  
+  scoreResult.textContent = score
+
+  scrollTo(top )
 })
-
-

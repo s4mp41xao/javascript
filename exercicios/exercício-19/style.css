@@ -9,6 +9,8 @@
 body,
 h1,
 h2,
+h3,
+h4,
 p,
 ul,
 li {
@@ -27,23 +29,37 @@ h1 {
   color: white;
 }
 
+.score-container {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 h4 {
-  padding: 15px;
+  padding: 10px 0px;
   font-size: 2rem;
+  border: solid 3px rgb(6, 4, 30);
+  background-color: rgb(152, 152, 188)
 }
 
 .person-form {
-  margin: 1.25rem 10rem;
+  margin: 2rem 10rem;
 }
 
 .form-questions {
   text-align: center;
-  padding: 20px;
+  padding: 0px 0px;
+  margin: 30px 35%;
+}
+
+.form-input-radios {
+  padding: 30px;
+  border: solid 3px rgb(170, 170, 195);
+  background-color: rgb(174, 174, 206);
 }
 
 .btn-section {
   text-align: center;
-  padding: 20px
+  padding: 30px
 }
 
 button {
