@@ -56,16 +56,3 @@ form.addEventListener('submit', event => {
   showFinalScore()
   animateFinalScore()
 })
-
-
-// let score = 0
-
-// const getUserAnswers = () => {
-//   const userAnswers = []
-
-//   for(let i = 0; i < correctAnswers.length; i++) {
-//     console.log(form[`inputQuestion${i + 1}`].value)
-//   }
-//   return userAnswers
-  
-// }

@@ -1,7 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  /* Isso evita que as bordas afetem a largura/altura do elemento */
+}
+
+body,
+h1,
+h2,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(103, 103, 140);
+}
+
 h1 {
   text-align: center;
   padding: 20px;
+  background-color: rgb(6, 4, 30);
+  color: white;
 }
+
+h4 {
+  padding: 15px;
+  font-size: 2rem;
+}
+
+.person-form {
+  margin: 1.25rem 10rem;
+}
+
+.form-questions {
+  text-align: center;
+  padding: 20px;
+}
+
+.btn-section {
+  text-align: center;
+  padding: 20px
+}
+
+button {
+  padding: 10px 25px;
+}
+
 
 /* p {
   margin: 0px;

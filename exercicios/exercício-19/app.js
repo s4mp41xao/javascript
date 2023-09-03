@@ -25,25 +25,7 @@ form.addEventListener('submit', event =>  {
     form.inputQuestion3.value,
     form.inputQuestion4.value,
   ]
-
-  userAnswers.forEach(userAnswer => {
-
-    
-    
-    
-    p.textContent = ''
-    
-    form.append(p)
-    
-    p.
-    
-
-
-  })
-
-
-
-
+  console.log(userAnswers)
 })
 
 
