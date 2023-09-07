@@ -5,16 +5,8 @@ const correctAnswers = ['B', 'B', 'B', 'B']
 
 let score = 0
 
-const getUserAnswers = () => {
-  let userAnswers = []
-
-  correctAnswers.forEach((_, index) => {
-    const userAnswer = form[`inputQuestion${index + 1}`].value 
-    userAnswers.push(userAnswer)
-  })
-
-  return userAnswers
-}
+const getUserAnswers = () => correctAnswers.map((_, index) =>
+  form[`inputQuestion${index + 1}`].value)
 
 const calculateUserScore = userAnswers => {
   userAnswers.forEach((userAnswer, index) => {
@@ -27,7 +19,7 @@ const calculateUserScore = userAnswers => {
 }
 
 const showFinalScore = () => {
-  scrollTo({ 
+  scrollTo({
     top: 0,
     left: 0,
     behavior: 'smooth'
@@ -37,9 +29,9 @@ const showFinalScore = () => {
 
 const animateFinalScore = () => {
   let counter = 0
-  
+
   const timer = setInterval(() => {
-    if(counter === score){
+    if (counter === score) {
       clearInterval(timer)
     }
 
@@ -51,7 +43,7 @@ form.addEventListener('submit', event => {
   event.preventDefault()
 
   const userAnswers = getUserAnswers()
-  
+
   calculateUserScore(userAnswers)
   showFinalScore()
   animateFinalScore()
