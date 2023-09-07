@@ -6,7 +6,9 @@
 
 const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
 
-const oddNumbers = randomNumbers.filter(randomNumber => randomNumber % 2 === 1 )
+const getOddNumbers = randomNumber => randomNumber % 2 === 1
+
+const oddNumbers = randomNumbers.filter(getOddNumbers)
 
 console.log(oddNumbers)
 
@@ -18,18 +20,12 @@ console.log(oddNumbers)
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
 
-const numbersBelow500 = crazyNumbers.reduce((accumulator, crazyNumber) => {
-  if (crazyNumber < 501){
-    accumulator += 1
-  }
-  return accumulator
-}, 0)
+const countNumbersLessThan501 = (accumulator, crazyNumber) =>
+  crazyNumber < 501 ? ++accumulator : accumulator
 
-console.log(numbersBelow500)
+const numbersBelow501 = crazyNumbers.reduce(countNumbersLessThan501, 0)
 
-// const numbersLower500 = crazyNumbers.filter(number => number < 501)
-
-// console.log(numbersLower500.length)
+console.log(numbersBelow501)
 
 /*
   03
@@ -60,7 +56,63 @@ const cart = [
   { name: 'Death Stranding', price: 149.99 }
 ]
 
-const productList = cart.reduce((accumulator, product) => {
-  
-}, '')
+const productList = cart.reduce((accumulator, { name }) => `${accumulator}- ${name}\n`, '')
 
+console.log(productList)
+
+/*
+  05
+
+  - Utilizando o array abaixo, gere um novo array com apenas os filmes lançados 
+    antes do ano 2000;
+  - Exiba o novo array no console.
+*/
+
+const tarantinoMovies = [
+  { name: 'Bastardos inglórios', release: 2009 },
+  { name: 'Pulp Fiction', release: 1994 },
+  { name: 'Kill Bill: Volume 2', release: 2004 },
+  { name: 'Quatro Quartos', release: 1995 },
+  { name: 'Sin City', release: 2005 },
+  { name: 'Era uma Vez em... Hollywood', release: 2019 },
+  { name: 'Django Livre', release: 2012 },
+  { name: 'Cães de Aluguel', release: 1992 },
+  { name: 'À Prova de Morte', release: 2007 },
+  { name: 'Kill Bill: Volume 1', release: 2003 }
+]
+
+const releasesBefore2000 = tarantinoMovies.filter(({ release }) => release < 2000)
+
+console.log(releasesBefore2000)
+
+/*
+  06
+
+  - Gere um novo array que contém apenas os nomes das séries abaixo;
+  - Exiba o novo array no console.    
+*/
+
+const tvShows = [
+  { name: 'Breaking Bad', releaseYear: 2008 },
+  { name: 'Mr. Robot', releaseYear: 2015 },
+  { name: 'True Detective', releaseYear: 2014 },
+  { name: 'Hannibal', releaseYear: 2013 },
+  { name: 'The Handmaid\'s Tale', releaseYear: 2017 },
+  { name: 'House M.D.', releaseYear: 2004 },
+  { name: 'Watchmen', releaseYear: 2019 }
+]
+
+const tvShowsNames = tvShows.map(tvShow => tvShow.name)
+
+console.log(tvShowsNames)
+
+// debugger
+
+// Debbuger É uma forma de inserir um breakpoint no código, o breakpoint é uma pausa na execução do código que permite verificar os valores no momento exato da execução do código.
+
+/*
+  07
+
+  - Observe os loops da sua versão do quiz e considere se, baseado no que foi  
+    visto nessa aula, você deve refatorá-los.
+*/
