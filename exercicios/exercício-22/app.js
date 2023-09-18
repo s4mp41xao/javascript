@@ -6,11 +6,13 @@
   - Exiba o array ordenado no console.
 */
 
+const getArrayCopy = array => array.map(name => name)
+
 const names = ['Caio', 'André', 'Dário']
 
-const orderedNames = names.map(name => name).sort()
+const orderedNames = getArrayCopy(names).sort()
 
-console.log(orderedNames, names)
+console.log(orderedNames)
 
 /*
   02
@@ -27,11 +29,12 @@ const characters = [
   { id: 4, name: 'Mufasa' },
 ]
 
-const orderedID = characters.map(character => ({ id: character.id, name: character.name }))
-
-orderedID.sort((character2, character1) => character2.id - character1.id)
-
+const orderedID = characters
+  .map(({ id, name }) => ({ id, name }))
+  .sort((character2, character1) => character2.id - character1.id)
 console.log(orderedID)
+
+// .sort(({ id: charac2ID }, { id: charac1ID }) => charac2ID - charac1ID)
 
 /*
   03
@@ -42,10 +45,10 @@ console.log(orderedID)
 */
 
 const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
+const ascendingOrderedNumbers = getArrayCopy(numbers)
+  .sort((score1, score2) => score1 - score2)
 
-const orderedNumbers = numbers.map(number => number).sort((score1, score2) => score1 - score2)
-
-console.log(orderedNumbers)
+console.log(ascendingOrderedNumbers)
 
 /*
   04
@@ -70,9 +73,9 @@ const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
 
 // Option 2
 
-const firstItemGreaterThan50 = randomNumbers.find((number) => number > 50);
+const firstItemGreaterThan50 = randomNumbers.find((number) => number > 50)
 
-console.log(firstItemGreaterThan50);
+console.log(firstItemGreaterThan50)
 
 // Option 3
 
@@ -90,23 +93,30 @@ console.log(firstItemGreaterThan50);
 
 const people = ['Cauã', 'Alfredo', 'Bruno']
 
-const invertedNames = people.map(name => name).sort().reverse()
+const invertedNamesOrder = getArrayCopy(people).sort().reverse()
 
-console.log(invertedNames)
+console.log(invertedNamesOrder)
 
 /*
   06
   
   - Através do array abaixo, gere a mensagem "vinho cozido, tomate cozido, 
     cebola cozida, cogumelo cozido";
-  - Exiba a string no console.
+  - Exiba a string no console.S
 */
 
 const ingredients = ['vinho', 'tomate', 'cebola', 'cogumelo']
 
-const showIngredients = ingredients.map(item => `${item} cozido`).join(', ').replace('cebola cozido', 'cebola cozida');
+const showIngredients = ingredients.reduce((acc, item, index, array) => {
+  const correctWordGender = /a$/.test(item) ? 'cozida' : 'cozido'
+  const isLastItem = index === array.length - 1
+  const ingredientMessage = acc + `${item} ${correctWordGender}`
+  return isLastItem ? ingredientMessage : `${ingredientMessage}, `
+}, '')
 
 console.log(showIngredients)
+
+// const showIngredients = ingredients.map(item => `${item} cozido`).join(', ').replace('cebola cozido', 'cebola cozida');
 
 /*
   07
@@ -115,7 +125,7 @@ console.log(showIngredients)
     assistiram apenas os filmes da Disney.
 */
 
-const topBrazilmovies = [
+const topBrazilMovies = [
   { title: 'Vingadores: Ultimato', peopleAmount: 19686119, distributedBy: 'Disney' },
   { title: 'Titanic', peopleAmount: 17050000, distributedBy: 'Paramount / 20th Century' },
   { title: 'O Rei Leão', peopleAmount: 16267649, distributedBy: 'Disney' },
@@ -128,14 +138,20 @@ const topBrazilmovies = [
   { title: 'Dona Flor e Seus Dois Maridos', peopleAmount: 10735524, distributedBy: 'Embrafilme' }
 ]
 
-const disneyMoviesViews = topBrazilmovies.reduce((accumulator, movie) => {
-  if (movie.distributedBy === 'Disney') {
-    accumulator += movie.peopleAmount
-  }
-  return accumulator
-}, 0)
+const peopleAmount = topBrazilMovies
+  .filter(({ distributedBy }) => distributedBy === 'Disney')
+  .reduce((acc, { peopleAmount }) => acc + peopleAmount, 0)
 
-console.log(disneyMoviesViews)
+console.log(peopleAmount)
+
+// const disneyMoviesViews = topBrazilMovies.reduce((accumulator, movie) => {
+//   if (movie.distributedBy === 'Disney') {
+//     accumulator += movie.peopleAmount
+//   }
+//   return accumulator
+// }, 0)
+
+// console.log(disneyMoviesViews)
 
 /*
   08
@@ -157,7 +173,9 @@ const pets = [
   { name: 'Chico', age: 6, gender: 'Male', type: 'Dog' }
 ]
 
-const dogs = pets.filter(pet => pet.type === "Dog").map(pet => pet.age * 7)
+const dogs = pets
+  .filter(({ type }) => type === 'Dog')
+  .map(({ name, age, gender, type }) => ({ name, age: age * 7, gender, type }))
 
 console.log(dogs)
 
@@ -170,13 +188,23 @@ console.log(dogs)
 
 const ul = document.querySelector('.list-group')
 
-const titleMovies = topBrazilmovies.map(movie => ul.innerHTML += `<li>${movie.title}</li>`)
+// const titleMovies = topBrazilMovies.map(movie => ul.innerHTML += `<li>${movie.title}</li>`)
 
+// const titleMovies = topBrazilMovies
+//   .map(movie => `<li>${movie.title}</li>`)
+//   .join('')
+
+// ul.innerHTML = titleMovies
 
 // titleMovies.forEach(movie => {
 //   ul.innerHTML = `<li>${movie}</li>`
 
 // })
+
+const titleMovies = topBrazilMovies
+  .reduce((acc, { title }) => acc + `<li>${title}</li>`, '')
+
+ul.innerHTML = titleMovies
 
 
 /*
