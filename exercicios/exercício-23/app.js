@@ -6,8 +6,8 @@
 */
 
 const myString = '    JS      '
-
-// console.log(myString.trim())
+const trimmedString = myString.trim()
+console.log(trimmedString)
 
 /*
   02
@@ -26,10 +26,10 @@ const people = [
 ]
 
 const orderedScores = people
-  .map(({ score }) => score)
-  .sort((score1, score2) => score1 - score2)
+  .map(({ firstName, lastName, score }) => ({ firstName, lastName, score, }))
+  .sort((a, b) => a.score - b.score)
 
-// console.log(orderedScores, people)
+console.log(orderedScores, people)
 
 /*
   03
@@ -43,8 +43,7 @@ const orderedScores = people
 
 const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
 
-const getAnimalsNameWith3Letters = animals.filter(animal => animal = animal.length === 3)
-
+const getAnimalsNameWith3Letters = animals.filter(({ length }) => length === 3)
 
 console.log(getAnimalsNameWith3Letters)
 
@@ -57,7 +56,7 @@ console.log(getAnimalsNameWith3Letters)
 
 */
 
-const getAnimalsNamesLetters = animals.map(animal => animal = animal.length)
+const getAnimalsNamesLetters = animals.map(({ length }) => length)
 
 console.log(getAnimalsNamesLetters)
 
@@ -77,11 +76,10 @@ const friends = [
   { id: 5, name: 'Solange', nearMe: false }
 ]
 
-const nearbyFriends = friends
-  .filter(friend => friend = friend.nearMe === true)
-  .map(friend => friend.name)
+const friendsNearMe = friends.filter(({ nearMe }) => nearMe)
+const nameOfFriendsNearMe = friendsNearMe.map(({ name }) => name)
 
-console.log(nearbyFriends)
+console.log(nameOfFriendsNearMe)
 
 
 /*
@@ -92,8 +90,10 @@ console.log(nearbyFriends)
 */
 
 const numbers = [46, 86, 212, 29, 51, 9, 25, 42, 81]
-
-
+const oddNumbersSum = numbers
+  .filter(number => number % 2 === 1)
+  .reduce((acc, oddNumber) => acc += oddNumber, 0)
+console.log(oddNumbersSum)
 
 /*
   07
@@ -115,3 +115,8 @@ const data = [{
   country: 'Indonesia',
   population: 263991379
 }]
+
+const populationSum = data
+  .filter(({ country }) => country !== "China")
+  .reduce((acc, { population }) => acc += population, 0)
+console.log(populationSum)
