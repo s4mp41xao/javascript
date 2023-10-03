@@ -80,7 +80,6 @@ console.log({ futureDay })
 */
 
 // const differenceDays = futureDay.getDay() - past.getDay()
-
 const days = futureDay.getTime() - past.getTime()
 const differenceInDays = Math.round(days / 1000 / 60 / 60 / 24)
 console.log({ differenceInDays })
